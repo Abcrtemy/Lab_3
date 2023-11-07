@@ -1,0 +1,44 @@
+name: Python CT/CD
+on:
+  push:
+    branches:
+      - main
+env:
+  PYTEST_REPORT_PATH: pytest_report.html
+  CODE_PATH: src/Library.py
+jobs:
+  tests:
+    runs-on: macos-14.0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          architecture: 'arm64'
+
+      - name: Install project dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest --html=${{env.PYTEST_REPORT_PATH }} --self-contained-html
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        if: ${{!cancelled()}}
+        with:
+          name: test-results
+          path: ${{ env.PYTEST_REPORT_PATH }}
+  upload_artifact:
+    needs: tests
+    runs-on: macos-14.0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code
+          path: ${{env.CODE_PATH }}
