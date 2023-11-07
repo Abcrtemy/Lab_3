@@ -4,7 +4,7 @@ from library import calculator
 
 class TestCalculator:
 
-    # Параметризованный тест для различных операций и ожидаемых результатов
+    # Параметризованный тест для различных операций и ожидаемых результат
     @pytest.mark.parametrize("a, b, operation, expected_result", [
         (4, 5, '+', 9),
         (10, 3, '-', 7),

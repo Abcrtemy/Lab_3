@@ -4,7 +4,7 @@ from library import bubble_sort
 
 class TestBubbleSort:
 
-    # Параметризованный тест для различных входных данных
+    # Параметризованный тест для различных входных данн
     @pytest.mark.parametrize("input_data, expected_result", [
         ([], []),
         ([5], [5]),

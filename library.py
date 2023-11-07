@@ -2,7 +2,7 @@
 # Пример: 5 -> 0, 1, 1, 2, 3
 def fibbonachi(n):
     if n < 0:
-        raise ValueError("n должно быть неотрицательным")
+        raise ValueError("n должно быть неотрицательным ")
 
     if n == 0:
         return []

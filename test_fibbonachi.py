@@ -4,7 +4,7 @@ from library import fibbonachi
 
 class TestFibbonachi:
 
-    # Параметризованный тест для различных значений n и ожидаемых результатов
+    # Параметризованный тест для различных значений n и ожидаемых результат
     @pytest.mark.parametrize("n, expected_result", [
         (0, []),
         (1, [0]),
