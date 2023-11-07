@@ -5,7 +5,7 @@ on:
       - master
 env:
   PYTEST_REPORT_PATH: pytest_report.html
-  CODE_PATH: src/Library.py
+  CODE_PATH: src/library.py
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: code
-          path: ${{env.CODE_PATH }}
+          path: ${{ env.CODE_PATH }}
