@@ -2,7 +2,7 @@ name: Python CT/CD
 on:
   push:
     branches:
-      - main
+      - master
 env:
   PYTEST_REPORT_PATH: pytest_report.html
   CODE_PATH: src/Library.py
