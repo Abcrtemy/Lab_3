@@ -5,7 +5,7 @@ on:
       - master
 env:
   PYTEST_REPORT_PATH: pytest_report.html
-  CODE_PATH: /src
+  CODE_PATH: src/library.py
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -18,13 +18,10 @@ jobs:
         with:
           python-version: '3.8'
           architecture: 'x64'
-
       - name: Install project dependencies
         run: pip install -r requirements.txt
-
       - name: Run tests
         run: pytest --html=${{env.PYTEST_REPORT_PATH }} --self-contained-html
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         if: ${{!cancelled()}}
